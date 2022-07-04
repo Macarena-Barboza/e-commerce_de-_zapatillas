@@ -1,0 +1,20 @@
+{
+  "name": "e-commerce_de_zapatillas",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"sass sass/style.scss ./css/style.css -w --no-source-map -s compressed"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Macarena-Barboza/e-commerce_de_zapatillas.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Macarena-Barboza/e-commerce_de_zapatillas/issues"
+  },
+  "homepage": "https://github.com/Macarena-Barboza/e-commerce_de_zapatillas#readme"
+}
