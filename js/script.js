@@ -37,16 +37,16 @@
 // // -------------------- comprar zapatilla --------------------
 do{ 
     let procucto1 = parseInt(prompt(`Hola ¿hasta cuanto es tu limite para gastar en zapatilla?`))
-    if (procucto1 < 500){ 
+    if (procucto1 <= 2500){ 
         alert("Lo siento No te alcanza para comprar!")
     }
-    if (procucto1 >= 1000 && procucto1 < 6000){ 
+    else if (procucto1 >= 2500 && procucto1 < 7000){ 
     alert("Podés Comprarte una zapatilla a 2500$")
     }
-    if (procucto1 >= 7000 && procucto1 < 9000){ 
-        alert("Podés Comprarte una zapatilla Nike a 10000$")
+    else if (procucto1 >= 7000 && procucto1 < 12000){ 
+        alert("Podés Comprarte una zapatilla Nike a 7000$")
     }
-    if (procucto1 >= 12000){ 
+    else if (procucto1 >= 12000){ 
         alert("Podés Comprarte una zapatilla Adidas a 12000$ ")
     }
 
