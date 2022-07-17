@@ -1,0 +1,42 @@
+.productos {
+    margin: 70px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+    &__titulo {
+        padding-bottom: 10px;
+    }
+    &__descrip {
+        text-align: center;
+        padding-bottom: 15px;
+    }
+    &__valor {
+        font-size: $font_valor;
+        margin: 5px;
+    }
+    &__cont {
+        background-color: $bg_rosa;
+        max-width: 320px;
+        padding: 20px;
+        border-radius: 30px;
+        box-shadow: $shadow;
+        margin: 20px;
+        position: relative;
+        &__imagen {
+            max-width: 270px;
+        }
+        &__text {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        &__ico {
+            position: absolute;
+            right: 25px;
+            top: 30px;
+            font-size: 25px;
+            color: $bg_coraton;
+        }
+    }
+}
