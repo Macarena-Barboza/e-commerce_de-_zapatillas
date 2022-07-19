@@ -1,4 +1,4 @@
-// _____________________     TAREA  DOM    __________
+// _____________________    DOM    __________
 
 class Zapatilla{
         constructor(marca, nombre, color, talle, precio, stock, imagen){
@@ -38,3 +38,51 @@ class Zapatilla{
         `
     })
     
+
+    // _____________________   Eventos    __________
+
+    class Productos {
+        constructor(marcas, descripcion, precios, imagenes) {
+            this.marcas = marcas
+            this.descripcion = descripcion
+            this.precios = precios
+            this.imagenes = imagenes
+        }
+     }
+    
+    const productos = [] 
+    
+    const form = document.getElementById('idForm')
+    // const mostrarProductos = document.getElementById('mostrarProductos')
+    const botonProduct = document.getElementById('botonProduct')
+    
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        let marcas = document.getElementById('idMarcas').value
+        let descripcion = document.getElementById('idDescripcion').value
+        let precios = document.getElementById('idPrecios').value
+        let imagenes = document.getElementById('idImagen').value
+    
+        const producto = new Productos(marcas, descripcion, precios, imagenes)
+        productos.push(producto)
+        console.log(producto);
+    
+        form.reset()
+    })
+    
+    botonProduct.addEventListener('click', () => {
+        productos.forEach(producto => {      
+            divProductos.innerHTML +=`
+            <div class="productos__cont" id= "${producto.id}>
+            <img class="productos__cont__imagen" src="${producto.imagenes}">
+            <div class="productos__cont__text">
+            <img class="productos__cont__imagen" src="${producto.imagenes}">
+                    <h3 class="productos__titulo">${producto.marcas}</h3>
+                    <p class="productos__descrip">${producto.descripcion}</p>
+                    <p class="productos__valor">$${producto.precios}</p>
+                    <button class="productos__btn boton">agregar carrito <i class="fa-solid fa-cart-shopping"></i></button>
+                </div>
+            </div>
+            `         
+        })
+    })

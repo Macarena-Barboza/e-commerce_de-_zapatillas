@@ -29,8 +29,38 @@
         </nav>
     </header>
 
-    
     <section class="productos" id="productos"></section>
+
+        <!-- ----------------  ingresando nuevos productos  --------------------- -->
+    
+        <div class="productos__form">
+            <form id="idForm" class="productos__form">
+                <div class="productos__form__from">
+                    <p class="productos__valor">Ingrese nuevo producto:</p>
+                    <div>
+                        <label for="idMarcas" class="productos__form__titulo">Marca:</label>
+                        <input type="text" class="productos__form__input" id="idMarcas">
+                    </div>
+                    <div>
+                        <label for="idDescripcion"class="productos__form__titulo">Descripción:</label>
+                        <input type="text" class="productos__form__input" id="idDescripcion">
+                    </div>
+                    <div>
+                        <label for="idPrecios"class="productos__form__titulo">Precio:</label>
+                        <input type="number"class="productos__form__input" id="idPrecios">
+                    </div>
+                    <div>
+                        <label for="idImagen"class="productos__form__titulo">Imagen:</label>
+                        <input type="text"class="productos__form__input" id="idImagen">
+                    </div>
+                </div>
+                <div class="productos__form__btns">
+                    <button type="submit" class="productos__form__btn">Crear Producto</button>
+                    <button id="botonProduct" class="productos__form__btn">Mostrar Productos</button>
+                </div>
+            </form>
+        </div>
+     <!-- ------------------------------------------------- -->
      
 
     <script src="js/script.js"></script>
