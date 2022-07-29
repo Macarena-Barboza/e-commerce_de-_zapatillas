@@ -6,7 +6,7 @@
 }
 
 html {
-    height: 100%;
+    min-height: 800px;
 }
 
 body {
@@ -14,11 +14,20 @@ body {
     font-size: $font;
     display: flex;
     flex-direction: column;
-    min-height: 100%;
-    // background: rgb(243, 223, 253);
+    min-height: 800px;
+    transition: ease 0.4s;
+    position: relative;
+}
+.logoWhat {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1%;
+    width: 45px;
+    z-index: 10;
 }
 
-// ----------------- menu de navegacion-----------------
+// _________  menu de navegacion  ______________
 nav {
     display: flex;
     justify-content: space-between;
@@ -32,11 +41,10 @@ nav {
         align-items: center;
         gap: 30px;
         .logo {
-            width: 55px;
+            width: 60px;
             height: auto;
         }
     }
-
     i {
         padding-top: 6px;
     }
@@ -60,7 +68,121 @@ a {
     border: none;
     background-color: $bg_nav;
     color: $font_a;
+    cursor: pointer;
+    &:active {
+        transform: scale(0.9);
+    }
     i {
         font-size: 15px;
+    }
+}
+
+// ______________ footer  ______________
+h4 {
+    padding-bottom: 5px;
+    color: $font_a;
+}
+footer {
+    background-color: $bg_nav;
+    width: 100%;
+    margin-top: auto;
+    .p_pag {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 30px 0;
+        gap: 60px;
+        &__redes {
+            i:hover {
+                text-decoration: none;
+            }
+        }
+        &__link {
+            color: $font_a;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &__contact__font {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: $font_a;
+        }
+    }
+    li {
+        font-size: 16px;
+        margin: 4px;
+    }
+}
+.copy {
+    display: flex;
+    justify-content: center;
+    background-color: $bg_nav;
+    color: $font_a;
+}
+
+// _________  boton dark o light  ______________
+.modeDark {
+    background-color: $modeDark;
+    color: $font_a;
+
+    .darkMode__btn {
+        width: 100px;
+        border-radius: 30px;
+        background-color: transparent;
+        outline: none;
+        border: none;
+    }
+    .productos__cont__dark {
+        background-color: $modeDark-cont;
+        box-shadow: $shadow-dark;
+    }
+}
+
+.button__sun {
+    font-size: 17px;
+    position: absolute;
+    top: 90px;
+    border-radius: 50%;
+    padding: 6px;
+    box-shadow: $shadow;
+    cursor: pointer;
+    right: 70px;
+    color: rgb(255, 237, 192);
+    background-color: #51d4d9;
+    &:active {
+        transform: scale(0.9);
+    }
+}
+.button__moon {
+    @extend.button__sun;
+    right: 34px;
+    background-color: $modeDark-cont;
+    color: rgb(255, 211, 51);
+}
+
+// -------------  Media queries   --------------------------
+@media screen and (max-width: 720px) {
+    // --------menuu navegacion --------------
+    .menu {
+        display: none;
+    }
+
+    footer {
+        .p_pag {
+            justify-content: start;
+            margin: 20px 40px;
+            padding-left: 10%;
+        }
+    }
+
+    // --------PRODUCTOS --------------
+    .banner {
+        width: 100%;
+        &__img {
+            width: 250px;
+        }
     }
 }

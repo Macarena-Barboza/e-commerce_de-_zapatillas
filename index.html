@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/41bcea2ae3.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png">
     <title>Zapas</title>
 </head>
 <body>
@@ -23,45 +24,90 @@
             </ul>
             <ul class="menu">
                 <a href="#"> <i class="fa-solid fa-heart"></i></a>
-                <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a id="mostrarCarrito"><i class="fa-solid fa-cart-shopping "></i><span id="contadorCarrito">0</span></a>
                 <a href="#"><i class="fa-solid fa-user"></i></a>
             </ul>
         </nav>
     </header>
 
-    <section class="productos" id="productos"></section>
 
-        <!-- ----------------  ingresando nuevos productos  --------------------- -->
-    
-        <div class="productos__form">
-            <form id="idForm" class="productos__form">
-                <div class="productos__form__from">
-                    <p class="productos__valor">Ingrese nuevo producto:</p>
-                    <div>
-                        <label for="idMarcas" class="productos__form__titulo">Marca:</label>
-                        <input type="text" class="productos__form__input" id="idMarcas">
-                    </div>
-                    <div>
-                        <label for="idDescripcion"class="productos__form__titulo">Descripción:</label>
-                        <input type="text" class="productos__form__input" id="idDescripcion">
-                    </div>
-                    <div>
-                        <label for="idPrecios"class="productos__form__titulo">Precio:</label>
-                        <input type="number"class="productos__form__input" id="idPrecios">
-                    </div>
-                    <div>
-                        <label for="idImagen"class="productos__form__titulo">Imagen:</label>
-                        <input type="text"class="productos__form__input" id="idImagen">
-                    </div>
-                </div>
-                <div class="productos__form__btns">
-                    <button type="submit" class="productos__form__btn">Crear Producto</button>
-                    <button id="botonProduct" class="productos__form__btn">Mostrar Productos</button>
-                </div>
-            </form>
-        </div>
-     <!-- ------------------------------------------------- -->
+    <div>
+        <a href="https://www.whatsapp.com/?lang=es" target="_bank"><img class="logoWhat" src="images/whatsapp.svg" alt="Whatsapp"></a>
+    </div>
+
+    <!-- __________________ boton dark o light  __________________________  -->
+
+    <i id="btnDark" class="fa-solid fa-moon darkMode button__moon"></i>
+    <i id="btnLight"class="fa-solid fa-sun lightMode button__sun"></i>
+
+   <main>
+  
+    <!-- __________________ buscador (filtro)   ________________________  -->
+      <div class="divBuscar">
+          <form class="divBuscar__form">
+               <input class="divBuscar__form__input" id="buscar" type="text"     placeholder="Buscador"  />
+               <button class="divBuscar__form__btn  divBuscar__form__btn" id="btnFiltrar" type="button">Buscar</button>
+           </form>
+       </div>
+
+    <!-- __________________  carrito ____________________________  -->
+       <section class="productos" id="divCarrito"></section>    
+       
+    <!-- __________________ productos  ____________________________  -->
      
+       <section class="productos" id="productos"></section>    
+
+    </main>
+
+
+     <footer>
+        <div class="p_pag">
+            <div class="p_pag__acerca">
+                <h4>Acerca de</h4>
+                <ul>
+                    <li><a href="#" class="p_pag__link">Quiénes Somos</a></li>
+                    <li><a href="#" class="p_pag__link">Terminos y Condiciones</a></li>
+                    <li><a href="#" class="p_pag__link">Políticas de Privacidad</a></li>
+                    <li><a href="#" class="p_pag__link">Defensa del Consumidor</a></li>
+                </ul>
+            </div>
+
+            <div class="p_pag__ayuda">
+                <h4>Ayuda</h4>
+                <ul>
+                    <li><a href="#" class="p_pag__link">¿Cómo comprar?</a></li>
+                    <li><a href="#" class="p_pag__link">Sucursales</a></li>
+                    <li><a href="#" class="p_pag__link">Pagos y promociones</a></li>
+                    <li><a href="#" class="p_pag__link">Entregas</a></li>
+                    <li><a href="#" class="p_pag__link">Cambios</a></li>
+                </ul>
+            </div>
+
+            <div class="p_pag__contact">
+                <h4>Centro de Atención al Cliente</h4>
+                <ul>
+                    <li class="p_pag__contact__font">Lunes a Viernes de 9 a 20 hs</li>
+                    <li class="p_pag__contact__font"><i class="fa-solid fa-envelope "></i> zapas@gmail.com</li>
+                    <li class="p_pag__contact__font"><i class="fa-brands fa-whatsapp "></i> 112345678</li>
+                    <li class="p_pag__contact__font"><i class="fa-solid fa-phone "></i> 0810-777-762</li>
+                </ul>
+            </div>
+
+            <div class="p_pag__redes">
+                <h4>Redes Sociales</h4>
+                    <ul>
+                        <li><a href="https://www.instagram.com/" target="_blank"> <i class="fa-brands fa-instagram p_pag__link"></i> Instagram</a></li>
+                        <li><a href="https://es-la.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-square p_pag__link"></i> Facebook</a></li>
+                        <li><a href="https://twitter.com/?lang=es" target="_blank"><i class="fa-brands fa-twitter p_pag__link"></i> Twitter</a></li>
+                    </ul>
+            </div>            
+
+        </div>
+
+        <div class="copy">
+            <p class="copy" >© derechos reservados 2022</p>
+        </div>
+    </footer>
 
     <script src="js/script.js"></script>
 </body>
