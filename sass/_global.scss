@@ -33,20 +33,31 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: $bg_nav;
-    padding: 17px;
-    .menu {
+    padding: 23px;
+    z-index: 100;
+    position: relative;
+    top: 0;
+    .navbar {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: center;
         gap: 30px;
         .logo {
-            width: 60px;
+            width: 57px;
             height: auto;
         }
     }
+    .menu1 {
+        display: flex;
+        gap: 25px;
+        padding-right: 8px;
+    }
     i {
         padding-top: 6px;
+    }
+    .menu__link {
+        white-space: nowrap;
     }
 }
 li {
@@ -59,6 +70,18 @@ a {
         color: $bg_rojo;
     }
 }
+// __________________________________
+
+#menu {
+    cursor: pointer;
+    position: absolute;
+    top: 26px;
+    left: 20px;
+    z-index: 1000;
+    color: $font_a;
+    display: none;
+}
+// ___________________________________
 
 .boton {
     border-radius: 50px;
@@ -75,6 +98,71 @@ a {
     i {
         font-size: 15px;
     }
+}
+main {
+    padding-top: 7rem;
+}
+
+// ______________ modal  ______________
+
+.modalCarri {
+    &__titulo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+    &__precio {
+        padding-left: 20px;
+    }
+}
+/* ---------- modal ---------------------- */
+
+.modal-contenedor {
+    position: absolute;
+    top: 87px;
+    right: 0;
+    transition: all 0.5s;
+    opacity: 0;
+    z-index: 0;
+}
+.modal-active {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-carrito {
+    position: relative;
+    min-width: 500px;
+    padding: 20px;
+    margin-top: -100%;
+    transition: all 0.5s;
+    // ------- mis estilos------
+    width: 500px;
+    max-height: 500px;
+    background-color: $bg_rosa;
+    overflow: auto;
+    border-radius: 5px 0 20px 20px;
+    box-shadow: $shadow-dark;
+
+    .boton__cruz {
+        background: none;
+        position: absolute;
+        right: 30px;
+    }
+    &::-webkit-scrollbar {
+        width: 10px;
+        &-thumb {
+            background: $bg_nav;
+            border-radius: 10px;
+        }
+    }
+}
+.modal-active .modal-carrito {
+    margin-top: 0;
 }
 
 // ______________ footer  ______________
@@ -127,7 +215,6 @@ footer {
 .modeDark {
     background-color: $modeDark;
     color: $font_a;
-
     .darkMode__btn {
         width: 100px;
         border-radius: 30px;
@@ -139,17 +226,20 @@ footer {
         background-color: $modeDark-cont;
         box-shadow: $shadow-dark;
     }
+    .modalCarri__content__dark {
+        background-color: $modeDark-cont;
+        box-shadow: $shadow-dark;
+    }
 }
-
 .button__sun {
     font-size: 17px;
     position: absolute;
-    top: 90px;
+    top: 95px;
     border-radius: 50%;
     padding: 6px;
     box-shadow: $shadow;
     cursor: pointer;
-    right: 70px;
+    left: 58px;
     color: rgb(255, 237, 192);
     background-color: #51d4d9;
     &:active {
@@ -158,7 +248,7 @@ footer {
 }
 .button__moon {
     @extend.button__sun;
-    right: 34px;
+    left: 20px;
     background-color: $modeDark-cont;
     color: rgb(255, 211, 51);
 }
@@ -166,8 +256,37 @@ footer {
 // -------------  Media queries   --------------------------
 @media screen and (max-width: 720px) {
     // --------menuu navegacion --------------
-    .menu {
-        display: none;
+
+    #menu {
+        display: block;
+        font-size: 25px;
+    }
+    .menu1 {
+        justify-content: flex-end;
+        width: 100%;
+    }
+    ul.menu {
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    header .navbar {
+        position: absolute;
+        min-width: 50%;
+        top: 50px;
+        left: -120%;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background-color: $bg_nav;
+        border-radius: 0 10px 20px 20px;
+        &.active {
+            left: 0;
+            transition: 0.5s;
+        }
+    }
+    .modal-carrito {
+        top: -20px;
     }
 
     footer {

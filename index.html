@@ -12,51 +12,69 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul class="menu">
+        <div id="menu" class="fas fa-bars"></div>
+        <nav >
+            <ul class="navbar" >
                 <a href="#" ><img src="images/Logo Zapas.png" class="logo" alt="logo"></a>
                 <li><a href="index.html" class="menu__link">Inicio</a></li>
                 <li><a href="#" class="menu__link">Productos</a></li>
                 <li><a href="#" class="menu__link">Mujer</a></li>
                 <li><a href="#" class="menu__link">Hombre</a></li>
-                <li><a href="#" class="menu__link">Preguntas</a></li>
                 <li><a href="#" class="menu__link">Contacto</a></li>
             </ul>
-            <ul class="menu">
+            <ul class="menu1">
                 <a href="#"> <i class="fa-solid fa-heart"></i></a>
-                <a id="mostrarCarrito"><i class="fa-solid fa-cart-shopping "></i><span id="contadorCarrito">0</span></a>
+                <a id="mostrarCarrito" class="menu__link "><i class="fa-solid fa-cart-shopping "></i><span id="contadorCarrito">0</span></a>
                 <a href="#"><i class="fa-solid fa-user"></i></a>
             </ul>
         </nav>
-    </header>
 
 
     <div>
         <a href="https://www.whatsapp.com/?lang=es" target="_bank"><img class="logoWhat" src="images/whatsapp.svg" alt="Whatsapp"></a>
     </div>
 
+
+
     <!-- __________________ boton dark o light  __________________________  -->
 
     <i id="btnDark" class="fa-solid fa-moon darkMode button__moon"></i>
     <i id="btnLight"class="fa-solid fa-sun lightMode button__sun"></i>
 
+
    <main>
-  
+
+        <!-- __________________  Muestra carrito _______________________  -->
+
+     <section class="modal-contenedor" id="modalCarri">
+        <div div class="modal-carrito modalCarri__content__dark">
+            <a id="carritoCerrar"><i class="fa-solid fa-xmark boton__cruz"></i></a>
+            <h2 class="modalCarri__titulo"> Carrito:</h2>
+            <section class="modalCarri__productos" id="divCarrito"></section>  
+            <div class="modalCarri__div">
+                <p class="modalCarri__precio" id="precioTotal">Precio Total: <span class="modalCarri__precio"></span>0</span></p>
+                <button id="vaciarCarrito" class="boton">Vaciar Carrito</button>
+            </div>
+        </div>
+     </section>
+
     <!-- __________________ buscador (filtro)   ________________________  -->
       <div class="divBuscar">
           <form class="divBuscar__form">
-               <input class="divBuscar__form__input" id="buscar" type="text"     placeholder="Buscador"  />
-               <button class="divBuscar__form__btn  divBuscar__form__btn" id="btnFiltrar" type="button">Buscar</button>
+               <input class="divBuscar__form__input" id="buscar" type="text" placeholder="Buscador"  />
+               <button class="divBuscar__form__btn  divBuscar__form__btn boton" id="btnFiltrar" type="button">Buscar</button>
            </form>
        </div>
 
-    <!-- __________________  carrito ____________________________  -->
-       <section class="productos" id="divCarrito"></section>    
+       <!-- __________________ productos  ____________________________  -->
        
-    <!-- __________________ productos  ____________________________  -->
-     
        <section class="productos" id="productos"></section>    
+       
+      <!-- __________________ desafio complementario  ____________________________  -->
+   
+       <section class="omple">
 
+       </section>
     </main>
 
 
@@ -110,5 +128,6 @@
     </footer>
 
     <script src="js/script.js"></script>
+
 </body>
 </html>
