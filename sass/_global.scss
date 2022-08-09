@@ -33,8 +33,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     background-color: $bg_nav;
-    padding: 23px;
-    z-index: 100;
+    padding: 12px;
+    z-index: 1000;
     position: relative;
     top: 0;
     .navbar {
@@ -77,7 +77,6 @@ a {
     position: absolute;
     top: 26px;
     left: 20px;
-    z-index: 1000;
     color: $font_a;
     display: none;
 }
@@ -103,66 +102,74 @@ main {
     padding-top: 7rem;
 }
 
-// ______________ modal  ______________
+// ______________ modal ______________
 
-.modalCarri {
-    &__titulo {
+.modal-body {
+    width: 100%;
+    margin-left: 1%;
+    &__precio {
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: space-between;
+        padding: 30px 50px 20px 0;
+        .boton {
+            margin-left: 50px;
+        }
     }
-    &__div {
+    &__vacio {
+        margin: 60px;
+        text-align: center;
+    }
+}
+.modal-title {
+    padding: 10px;
+    margin-right: 3.5em;
+    font-family: "Raleway", sans-serif;
+}
+.boton-vaciar {
+    height: 45px;
+    margin: 10px 0 15px 30px;
+}
+.conte-carrito-div {
+    width: 97%;
+    margin: 0 auto;
+    .conte-carrito {
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        min-width: 320px;
+        height: 100px;
         display: flex;
         flex-direction: row;
         align-items: center;
-    }
-    &__precio {
-        padding-left: 20px;
-    }
-}
-/* ---------- modal ---------------------- */
-
-.modal-contenedor {
-    position: absolute;
-    top: 87px;
-    right: 0;
-    transition: all 0.5s;
-    opacity: 0;
-    z-index: 0;
-}
-.modal-active {
-    opacity: 1;
-    visibility: visible;
-}
-.modal-carrito {
-    position: relative;
-    min-width: 500px;
-    padding: 20px;
-    margin-top: -100%;
-    transition: all 0.5s;
-    // ------- mis estilos------
-    width: 500px;
-    max-height: 500px;
-    background-color: $bg_rosa;
-    overflow: auto;
-    border-radius: 5px 0 20px 20px;
-    box-shadow: $shadow-dark;
-
-    .boton__cruz {
-        background: none;
-        position: absolute;
-        right: 30px;
-    }
-    &::-webkit-scrollbar {
-        width: 10px;
-        &-thumb {
-            background: $bg_nav;
-            border-radius: 10px;
+        justify-content: space-between;
+        &__img {
+            width: 70px;
+            height: auto;
+            margin-left: 20px;
+        }
+        &__txt {
+            font-size: 16px;
+            text-align: center;
+            margin: 0 6px;
+            &__titulo {
+                display: flex;
+                flex-direction: column;
+                font-size: 14px;
+                width: 80px;
+                margin-left: 20px;
+            }
+        }
+        &__precio {
+            @extend.conte-carrito__txt;
+            width: 10px;
+        }
+        &__btn {
+            cursor: pointer;
+            background: none;
+            border: none;
+            text-align: right;
+            margin-right: 40px;
         }
     }
-}
-.modal-active .modal-carrito {
-    margin-top: 0;
 }
 
 // ______________ footer  ______________
@@ -260,6 +267,10 @@ footer {
     #menu {
         display: block;
         font-size: 25px;
+        position: absolute;
+        top: 19px;
+        left: 30px;
+        z-index: 2000;
     }
     .menu1 {
         justify-content: flex-end;
