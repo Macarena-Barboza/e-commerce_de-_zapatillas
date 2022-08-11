@@ -1,0 +1,122 @@
+[
+    {
+        "id":1,
+        "marca":"Converse", 
+        "nombre":"Run Star Hike",
+        "color":"Beige",
+        "talle": [36, 38, 39, 40],
+        "precio": 15000,
+        "imagen":"../images/Converse.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["mujer"], 
+        "cantidad": 1
+    },
+    {
+        "id":2,
+        "marca":"Nike",
+        "nombre":"Air Force",
+        "color":"Rosa",
+        "talle": [35, 36],
+        "precio": 22000,
+        "imagen":"../images/Nike1.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["mujer"], 
+        "cantidad": 1
+    },
+    {
+        "id":3,
+        "marca":"Adidas",
+        "nombre":"Forum Mide",
+        "color":"Blanco",
+        "talle": [40, 42, 43, 44],
+        "precio": 33000,
+        "imagen":"../images/Adidas2.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":4,
+        "marca":"Puma",
+        "nombre":"Future Rider Play On",
+        "color":"Celeste",
+        "talle": [39, 40, 43 ],
+        "precio": 20000,
+        "imagen":"../images/Puma1.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":5,
+        "marca":"Nike",
+        "nombre":"Air Force",
+        "color":"Crema",
+        "talle": [37, 39],
+        "precio": 27000,
+        "imagen":"../images/Nike2.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["mujer"], 
+        "cantidad": 1
+    },
+    {
+        "id":6,
+        "marca":"DC",
+        "nombre":"Shoes Pure",
+        "color":"Negro",
+        "talle": [40, 41, 42, 43 ],
+        "precio": 18000,
+        "imagen":"../images/DC1.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":7,
+        "marca":"Hoka",
+        "nombre":"Anacapa Mid GTX",
+        "color":"Marrón",
+        "talle": [37, 39],
+        "precio": 13000,
+        "imagen":"../images/Hoka.png",
+        "descripcion":"botas specializadas al senderismo de uso diario", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":8,
+        "marca":"Nike",
+        "nombre":"Air Force",
+        "color":"Rojo",
+        "talle":  [35, 36],
+        "precio": 24000,
+        "imagen":"../images/Nike3.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["mujer", "hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":9,
+        "marca":"Adidas",
+        "nombre":"Force",
+        "color":"negro",
+        "talle": [35, 36],
+        "precio": 40000,
+        "imagen":"../images/Adidas1.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    },
+    {
+        "id":10,
+        "marca":"Puma",
+        "nombre":"Force",
+        "color":"azul",
+        "talle": [39, 41],
+        "precio": 37000,
+        "imagen":"../images/Puma2.png",
+        "descripcion":"es apta para correr una maratón y ademas es suavecita", 
+        "genero":["hombre"], 
+        "cantidad": 1
+    }
+]

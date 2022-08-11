@@ -1,35 +1,15 @@
 
-    class Zapatilla{
-        constructor(id, marca, nombre, color, talle, precio, imagen, descripcion, genero){
-            this.id = id
-            this.marca = marca
-            this.nombre = nombre
-            this.color = color
-            this.talle = talle
-            this.precio = precio 
-            this.imagen = imagen
-            this.descripcion = descripcion
-            this.genero = genero
-            this.cantidad = 1
-        }      
-    }
-    const zapatillas1 = new Zapatilla(1,"Converse", "Run Star Hike", "Beige", [36, 38, 39, 40], 9000,"./images/Converse.png","es apta para correr una maratón y ademas es suavecita", ["mujer"], )
-    const zapatillas2 = new Zapatilla(2, "Nike", "Air Force", "Rosa", [35, 36], 22000,"./images/Nike1.png", "es apta para correr una maratón y ademas es suavecita", ["mujer"],)
-    const zapatillas3 = new Zapatilla(3, "Adidas", "Forum Mid", "Blanco", [40, 42, 43, 44], 33000,"./images/Adidas2.png","es apta para correr una maratón y ademas es suavecita",["hombre"], )
-    const zapatillas4 = new Zapatilla(4, "Puma", "Future Rider Play On", "Celeste", [39, 40, 43 ], 20000,"./images/Puma1.png","es apta para correr una maratón y ademas es suavecita",["hombre"],  )
-    const zapatillas5 = new Zapatilla(5, "Nike", "Air Force", "Crema", [37, 39], 27000,"./images/Nike2.png","es apta para correr una maratón y ademas es suavecita",["mujer"],)
-    const zapatillas6 = new Zapatilla(6, "DC", "Shoes Pure", "Negro", [40, 41, 42, 43 ], 18000,"./images/DC1.png","es apta para correr una maratón y ademas es suavecita",["hombre"], )
-    const zapatillas7 = new Zapatilla(7, "Hoka", "Anacapa Mid GTX", "Marrón", [37, 39], 13000,"./images/Hoka.png", "botas de senderismo de uso diario.",["hombre"],)
-    const zapatillas8 = new Zapatilla(8, "Nike", "Air Force", "Rojo", [35, 36], 24000,"./images/Nike3.png", "es apta para correr una maratón y ademas es suavecita",["mujer", "hombre"],)
-    const zapatillas9 = new Zapatilla(9, "Adidas", "Force", "negro", [35, 36], 40000, "./images/Adidas1.png", "es apta para correr una maratón y ademas es suavecita", ["hombre"],)
-    const zapatillas10 = new Zapatilla(10, "Puma", "Force", "azul", [39, 41], 37000,"./images/Puma2.png", "es apta para correr una maratón y ademas es suavecita",["hombre"], )
-     
-    const zapatillas = [zapatillas1, zapatillas2, zapatillas3, zapatillas4, zapatillas5,zapatillas6, zapatillas7, zapatillas8, zapatillas9, zapatillas10]
-    console.log("¡bienvenidos a zapas!")
-    
-    const divProductos = document.getElementById('productos')
+     fetch ('./product/productos.json')
+     .then(response => response.json()) 
+     .then(data => {
+        zapatillas = data
+        mostrarProducto(zapatillas)
+        return zapatillas
+    })
+    let zapatillas = []
 
-    mostrarProducto(zapatillas)
+
+    const divProductos = document.getElementById('productos')
 
     function mostrarProducto(zapatillas){
         divProductos.innerHTML = ""
@@ -96,29 +76,17 @@
                 }
             })
         } else{ // _____ si No existe lo Agrega al Carrito ______
-        const articulo = zapatillas.find((produ) => produ.id === IdProducto)
-        carrito.push(articulo)
+            const articulo = zapatillas.find((produ) => produ.id === IdProducto)
+            carrito.push(articulo)
         }
         localStorage.setItem("carrito",JSON.stringify(carrito))
         mostrarCarritos();  
     }
 
-     function quitarCarrito(IdProducto) {
-        const articulo = carrito.find((produ) => produ.id === IdProducto)
-        const indice = carrito.indexOf(articulo)
-        if(articulo.cantidad > 1){
-            carrito[indice].cantidad--;
-        }else {
-            carrito.splice(indice, 1)
-        }
-        localStorage.setItem('carrito', JSON.stringify(carrito))
-        mostrarCarritos();
-    }
-
     mostrarCarrito.addEventListener("click", mostrarCarritos)
 
 
- // _________________________ Modal _________________________
+ // _________________________ Modal Carrito_________________________
 
     function mostrarCarritos(){
         let carrito = JSON.parse(localStorage.getItem('carrito'))
@@ -135,21 +103,20 @@
                         <p class="conte-carrito__precio">$${(productoZapatilla.precio * productoZapatilla.cantidad)}</p>
                         <div class="conte-carrito__txt">
                         </div>
-                        <button id="eliminar${productoZapatilla.id}" class="conte-carrito__btn"> <i class="fa-solid fa-trash"></i> </button>
+                        <button onclick="eliminarProducto(${productoZapatilla.id})" class="conte-carrito__btn"> <i class="fa-solid fa-trash"></i> </button>
                     </div>
                 </div>`
             })
         } else {
             divCarrito.innerHTML = `<p class="modal-body__vacio"> No hay productos en el carrito</p>`
         }
-        eliminar()
         contadorCarrito.innerText = carrito.length
         total()
     }
 
 // __________________ Boton Confirma Carrito  _____________ 
     document.getElementById("btnConfirmar").addEventListener('click',()=>{
-        if (carrito.length>0){
+        if (carrito.length > 0){
             Swal.fire({
                 title: 'Elegi el medio de pago',
                 showDenyButton: true,
@@ -183,28 +150,34 @@
         }
     });
 
-    // ___________________________________________________
+  
+// __________  Elimina Producto/s  ___________
 
-
-    function eliminar(){
-        carrito.forEach((productoZapatilla, id) =>{
-            let botnnnn = document.getElementById(`eliminar${productoZapatilla.id}`)
-            botnnnn.addEventListener('click', () =>{
-                document.getElementById(`agregar${productoZapatilla.id}`).remove()
-                let index = carrito.findIndex(productoZapatillaA => productoZapatillaA.marca == productoZapatilla.marca)
-                carrito.splice(index,1)
-                contadorCarrito.innerText = carrito.length
-                localStorage.setItem('carrito', JSON.stringify(carrito))
-                total()
-            })
-        })
-        vaciarCarrito.addEventListener('click', () => {
-            carrito.length = 0
-            localStorage.setItem('carrito', JSON.stringify(carrito))
-            mostrarCarritos();
-        })
+    function eliminarProducto(IdProducto) {
+        const articulo = carrito.find((produ) => produ.id === IdProducto)
+        const indice = carrito.indexOf(articulo)
+        carrito.splice(indice, 1)
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+        mostrarCarritos();
     }
-    
+    vaciarCarrito.addEventListener('click', () => {
+        carrito.length = 0
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+        mostrarCarritos();
+    })
+
+    function quitarCarrito(IdProducto) {
+        const articulo = carrito.find((produ) => produ.id === IdProducto)
+        const indice = carrito.indexOf(articulo)
+        if(articulo.cantidad > 1){
+            carrito[indice].cantidad--;
+        }else if(articulo.cantidad < 1){
+            carrito.splice(indice, 1)
+        }
+        localStorage.setItem('carrito', JSON.stringify(carrito))
+        mostrarCarritos();
+    }
+
     function total(){
         contadorCarrito.innerText = carrito.length
         precioTotal.innerText = carrito.reduce((acc, produ) => acc + produ.precio * produ.cantidad, 0)
