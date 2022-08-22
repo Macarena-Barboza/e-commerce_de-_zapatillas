@@ -6,7 +6,7 @@
 }
 
 html {
-    min-height: 800px;
+    height: 100%;
 }
 
 body {
@@ -14,7 +14,7 @@ body {
     font-size: $font;
     display: flex;
     flex-direction: column;
-    min-height: 800px;
+    min-height: 100%;
     transition: ease 0.4s;
     position: relative;
 }
@@ -28,15 +28,19 @@ body {
 }
 
 // _________  menu de navegacion  ______________
+header {
+    position: fixed;
+    height: 90px;
+    z-index: 2000;
+    top: 0px;
+    width: 100%;
+}
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: $bg_nav;
-    padding: 12px;
-    z-index: 1000;
-    position: relative;
-    top: 0;
+    padding: 8px 17px;
     .navbar {
         display: flex;
         flex-direction: row;
@@ -70,39 +74,33 @@ a {
         color: $bg_rojo;
     }
 }
-// __________________________________
-
 #menu {
     cursor: pointer;
     position: absolute;
-    top: 26px;
-    left: 20px;
+    z-index: 1040;
     color: $font_a;
     display: none;
 }
-// ___________________________________
 
 .boton {
     border-radius: 50px;
-    padding: 13px;
+    padding: 8px 13px;
     font-size: $font;
     margin: 10px;
     border: none;
     background-color: $bg_nav;
     color: $font_a;
     cursor: pointer;
+    text-align: center;
     &:active {
         transform: scale(0.9);
     }
-    i {
-        font-size: 15px;
-    }
 }
 main {
-    padding-top: 7rem;
+    padding-top: 5rem;
 }
 
-// ______________ modal ______________
+// ______________ Modal ______________
 
 .modal-body {
     width: 100%;
@@ -116,7 +114,7 @@ main {
         }
     }
     &__vacio {
-        margin: 60px;
+        margin: 20%;
         text-align: center;
     }
 }
@@ -135,16 +133,16 @@ main {
     .conte-carrito {
         box-shadow: 0 4px 5px rgba(0, 0, 0, 0.05);
         border-radius: 10px;
-        min-width: 320px;
+        width: 97%;
+        margin: auto;
         height: 100px;
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
         &__img {
-            width: 70px;
+            max-width: 7rem;
             height: auto;
-            margin-left: 20px;
         }
         &__txt {
             font-size: 16px;
@@ -155,23 +153,26 @@ main {
                 flex-direction: column;
                 font-size: 14px;
                 width: 80px;
-                margin-left: 20px;
             }
         }
-        &__precio {
+        &__precio,
+        &__precioUnid {
             @extend.conte-carrito__txt;
-            width: 10px;
+            width: 60px;
         }
         &__btn {
             cursor: pointer;
             background: none;
             border: none;
             text-align: right;
-            margin-right: 40px;
+            width: 80px;
+            margin-right: 5%;
         }
     }
 }
-
+p.confiBtn {
+    margin-bottom: 0;
+}
 // ______________ footer  ______________
 h4 {
     padding-bottom: 5px;
@@ -218,17 +219,10 @@ footer {
     color: $font_a;
 }
 
-// _________  boton dark o light  ______________
-.modeDark {
+// __________	DARKMODE	___________
+.darkmode {
     background-color: $modeDark;
     color: $font_a;
-    .darkMode__btn {
-        width: 100px;
-        border-radius: 30px;
-        background-color: transparent;
-        outline: none;
-        border: none;
-    }
     .productos__cont__dark {
         background-color: $modeDark-cont;
         box-shadow: $shadow-dark;
@@ -237,43 +231,179 @@ footer {
         background-color: $modeDark-cont;
         box-shadow: $shadow-dark;
     }
-}
-.button__sun {
-    font-size: 17px;
-    position: absolute;
-    top: 95px;
-    border-radius: 50%;
-    padding: 6px;
-    box-shadow: $shadow;
-    cursor: pointer;
-    left: 58px;
-    color: rgb(255, 237, 192);
-    background-color: #51d4d9;
-    &:active {
-        transform: scale(0.9);
+    .modal-title {
+        color: $font_a;
+    }
+    .productoLateral__filt__dark {
+        color: $font_a;
+        &:hover {
+            color: $bg_rojo;
+        }
+    }
+    .darkmode__img {
+        filter: invert(100%);
+    }
+    .titulo {
+        color: $font_a;
+    }
+    .products .swiper-slide-active h3,
+    .products .swiper-slide-active .btn {
+        color: $font_a;
+    }
+    .swiper-btn {
+        background-color: $modeDark-dark;
     }
 }
-.button__moon {
-    @extend.button__sun;
-    left: 20px;
-    background-color: $modeDark-cont;
-    color: rgb(255, 211, 51);
+
+.dark-mode-toggle {
+    top: 110px;
+    right: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 80px;
+    z-index: 10;
+    position: fixed;
+    &.active {
+        animation-name: animar2;
+        animation-duration: 1.5s;
+        @keyframes animar2 {
+            10% {
+                transform: rotateZ(-30deg);
+            }
+            15% {
+                transform: rotateZ(-40deg);
+            }
+
+            35% {
+                transform: rotateZ(63deg);
+                transform: translateY(-27px);
+            }
+            45% {
+                transform: rotateZ(20deg);
+            }
+            70% {
+                transform: rotateZ(-3deg);
+            }
+            80% {
+                transform: rotateZ(0deg);
+            }
+        }
+    }
 }
+// ______________________________
 
 // -------------  Media queries   --------------------------
-@media screen and (max-width: 720px) {
-    // --------menuu navegacion --------------
+@media (max-width: 991px) {
+    // _____________ Modal _____________
+    .boton-vaciar {
+        margin: 0 0 0 5%;
+        font-size: 1rem;
+        padding: 1%;
+        margin-top: 1%;
+    }
+    .modal-body {
+        font-size: 12px;
+        padding: 10px 0;
+        text-align: center;
+        justify-content: space-around;
+        .Subtotal {
+            display: none;
+        }
+    }
+    .conte-carrito-div .conte-carrito {
+        flex-direction: column;
+        margin: 3% 0;
+        justify-content: center;
+    }
+    .conte-carrito-div .conte-carrito__img {
+        margin: 0px;
+        min-width: 5rem;
+        padding: 0px;
+    }
+    .conte-carrito-div .conte-carrito__txt__titulo {
+        padding: 0;
+        text-align: center;
+        margin: 0px;
+        width: 60%;
+    }
+    .conte-carrito__txt {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .conte-carrito-div .conte-carrito__txt,
+    .conte-carrito-div .conte-carrito__precio {
+        width: 150px;
+        justify-content: center;
+        padding: 0px;
+        margin: 0px;
+    }
+    .conte-carrito-div .conte-carrito-div .conte-carrito__precioUnid {
+        display: none;
+    }
+    p.conte-carrito__precio.col-2 {
+        padding-top: 7px;
+    }
+    .btn-outline-info {
+        height: 20px;
+        padding: 0 4%;
+        margin: 2%;
+    }
+    .conte-carrito-div .conte-carrito__btn {
+        padding: 0;
+        width: 0px;
+    }
+    .modal-title {
+        margin-right: 0px;
+    }
+    .modal-footer {
+        justify-content: center;
+    }
 
+    // _____________ Presentacion _____________
+
+    .presentacion {
+        width: 100%;
+        &__div {
+            flex-direction: column;
+        }
+        &__img {
+            width: 90%;
+        }
+    }
+    section.presentacion__div {
+        margin: 5% 0;
+    }
+    section.presentacion2__div {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+        .presentacion2__cont {
+            width: 60%;
+            text-align: center;
+            margin: 4% auto;
+        }
+        .presentacion__img {
+            margin: auto;
+        }
+    }
+    // ______________ Banner __________________
+    .banner__img {
+        width: 100%;
+    }
+}
+
+@media (max-width: 720px) {
+    // --------menuu navegacion --------------
     #menu {
         display: block;
         font-size: 25px;
-        position: absolute;
-        top: 19px;
-        left: 30px;
-        z-index: 2000;
+        top: 24px;
+        left: 40px;
     }
     .menu1 {
         justify-content: flex-end;
+        margin-top: 9px;
         width: 100%;
     }
     ul.menu {
@@ -283,14 +413,14 @@ footer {
     }
     header .navbar {
         position: absolute;
-        min-width: 50%;
-        top: 50px;
+        width: 100%;
+        top: 70px;
         left: -120%;
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 20px 8px 72px;
         background-color: $bg_nav;
-        border-radius: 0 10px 20px 20px;
+        border-radius: 0 10px 10px 10px;
         &.active {
             left: 0;
             transition: 0.5s;
@@ -300,19 +430,90 @@ footer {
         top: -20px;
     }
 
+    .dark-mode-toggle {
+        top: 128px;
+        right: 28px;
+        width: 60px;
+    }
+    // _____________ carrusel _____________
+    .products {
+        & .slide img {
+            max-height: 16rem;
+        }
+    }
+
+    // _____________ section productos _____________
+
+    .productos__cont.productos__cont__dark {
+        margin: 0;
+    }
+    // _____________ footer _____________
+
     footer {
         .p_pag {
             justify-content: start;
             margin: 20px 40px;
             padding-left: 10%;
         }
+        .copy {
+            text-align: center;
+            margin: 0 7% 0 4%;
+            font-size: 1rem;
+        }
     }
 
-    // --------PRODUCTOS --------------
-    .banner {
+    // -------- PAGINA de PRODUCTOS --------------
+    .productoLateral {
+        flex-direction: column;
+        justify-content: center;
+        &__cont {
+            width: 90%;
+            margin: 5%;
+        }
+        &__category {
+            margin-bottom: 5%;
+        }
+        &__filt {
+            display: flex;
+            justify-content: center;
+            width: 90%;
+        }
+        .rangoPrecio {
+            padding: 0;
+            width: 85%;
+            margin: 9%;
+        }
+    }
+    h4.productoLateral__titulo {
+        padding: 0;
+        display: flex;
+        justify-content: center;
+    }
+    ul#Marca {
+        padding-left: 0;
+    }
+    #productos {
         width: 100%;
-        &__img {
-            width: 250px;
+        margin: 10% 0;
+    }
+    // -------- LOGGIN --------------
+
+    div.formulario {
+        display: flex;
+        flex-direction: column;
+        .formulario__titulo {
+            font-size: 25px;
+            margin: 5% 1% 0;
+        }
+        .formulario__descr {
+            font-size: 18px;
+            margin: 0 1%;
+        }
+        .campo {
+            height: 40px;
+        }
+        form.formulario__from {
+            width: 100%;
         }
     }
 }

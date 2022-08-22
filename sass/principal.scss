@@ -1,0 +1,131 @@
+.presentacion {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    &__div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-height: 20%;
+        &.active {
+            display: none;
+        }
+    }
+    &__divP {
+        display: none;
+        &.active {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            max-height: 20%;
+        }
+    }
+    &__cont {
+        margin: 0 0 0 5%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__titulo {
+            width: 20rem;
+            font-size: $font_gigant;
+            padding-left: 5%;
+        }
+        .boton {
+            margin: 1% 10%;
+        }
+    }
+    &__img {
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+    }
+}
+.presentacion2__div {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    &.active {
+        display: none;
+    }
+}
+.presentacion2__cont {
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto 0;
+}
+
+// ______________ Banner __________________
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5% 0;
+    &__img {
+        max-height: 300px;
+        z-index: -10;
+    }
+}
+
+// ______________ Carrusel __________________
+
+.carrusel {
+    margin: 10%;
+    &.active {
+        display: none;
+    }
+    &__titulo {
+        text-align: center;
+        font-size: $font_valor;
+        padding: 36px 3px 0px 0px;
+    }
+}
+.titulo {
+    color: $bg_nav;
+}
+
+@mixin titleText($titleSize) {
+    font-size: $titleSize;
+    color: #000;
+    text-transform: capitalize;
+}
+.products {
+    .slide {
+        text-align: center;
+        img {
+            height: 25rem;
+            transform: scale(0.5);
+            transition: 0.2s;
+        }
+        h3 {
+            @include titleText(2.5rem);
+            opacity: 0;
+        }
+        .swiper-btn {
+            opacity: 0;
+        }
+    }
+    .swiper {
+        padding-bottom: 12px;
+    }
+    .swiper-slide-active {
+        img {
+            transform: scale(1);
+        }
+        h3,
+        .swiper-btn {
+            opacity: 1;
+        }
+        .swiper-btn {
+            width: 120px;
+            margin: 0 auto 5%;
+        }
+    }
+}
+a.boton.swiper-btn {
+    &:hover {
+        color: #fff;
+    }
+}

@@ -1,7 +1,7 @@
 {
   "name": "e-commerce_de_zapatillas",
   "version": "1.0.0",
-  "description": "",
+  "description": "es una página e-commerce de zapatillas",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/Macarena-Barboza/e-commerce_de_zapatillas.git"
   },
-  "author": "",
+  "author": "Macarena Barboza",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Macarena-Barboza/e-commerce_de_zapatillas/issues"
