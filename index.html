@@ -33,36 +33,6 @@
             </ul>
         </nav>
 
-         <!--_________________________ Modal _________________________-->
-         <div class="modal fade  " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-lg ">
-             <div class="modal-content  productos__cont__dark">
-               <div class="modal-header">
-                  <h3 class="modal-title text-center" id="exampleModalLabel">¡Se agregó el producto a carrito!</h3>
-                 <a class="btn-close" data-bs-dismiss="modal" aria-label="Close"></a>
-               </div>
-                  <div class="container-fluid">
-                      <div class="row modal-body conte-carrito__txt">
-                          <div class="col-2 "><p>Producto</p></div>
-                          <div class="col-2 "><p>Nombre</p></div>
-                          <div class="col-2 "><p>Precio</p></div>
-                          <div class="col-2 "><p>Cant.</p></div>
-                          <div class="col-2 Subtotal"><p>Subtotal</p></div>
-                          <div class="col-2 "><p>Quitar</p></div>
-                      </div>
-
-               <section class="conte-carrito-div" id="divCarrito"></section>  
-              <div class="row">
-                  <div class="col-12 d-flex justify-content-between contenedorTotalModal"><button id="vaciarCarrito" class="boton-vaciar boton">Vaciar Carrito</button><h3 class="modal-title text-center">Total: $<span id="precioTotal">0</span></h3></div>
-              </div> 
-       
-               <div class="modal-footer">
-                 <button type="button" id="btnSeguirComprando" data-bs-dismiss="modal" class="btn btn-primary">Seguir comprando</button>
-                 <button type="button" id="btnConfirmar" data-bs-dismiss="modal" class="btn btn-primary"> Confirmar</button>
-               </div>
-             </div>
-         </div>
-       </div>  
     </header>
 
     <div>
@@ -75,14 +45,13 @@
     </button>	
     
    <main>
-      <section class="presentacion__div" id="presentacion"> 
-            <img src="images/zapas.png" alt="" class="presentacion__img ">
-          <div class="presentacion__cont">
-              <h2 class="presentacion__cont__titulo titulo">Nike Air Live es el futuro!</h2>
+            <section class="presentacion2__div" id="presentacion2"> 
+            <div class="presentacion2__cont">
+              <h2 class="presentacion2__cont__titulo titulo">Air Jordan Turbo Green es el futuro!</h2>
               <a href="page/productos.html" class="boton swiper-btn">Comprar</a>
-          </div>
-      </section>
-
+            </div>
+            <img src="images/AirJordanTurboGreennReverse.png" alt="" class="presentacion__img">
+        </section>
        <!-- __________________ productos Carrusel _________________________  -->
       <section class="carrusel" id="carrusel">
         <h2 class="carrusel__titulo titulo">¡Elegí el tuyo!</h2>
@@ -95,37 +64,37 @@
                 <div class="swiper-slide slide">
                     <img src="images/carrusel 1.png" alt="">
                     <h3>Topper</h3>
-                    <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                    <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                  </div>
        
                 <div class="swiper-slide slide">
                    <img src="images/carrusel 2.png" alt="">
                    <h3>nike Air Max</h3>
-                   <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                   <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                 </div>
 
                 <div class="swiper-slide slide">
                     <img src="images/carrusel 3.png" alt="">
                     <h3>Adidas</h3>
-                    <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                    <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                  </div>
        
                 <div class="swiper-slide slide">
                    <img src="images/carrusel 6.png" alt="">
                    <h3>Puma</h3>
-                   <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                   <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                 </div>
        
                 <div class="swiper-slide slide">
                    <img src="images/carrusel 5.png" alt="">
                    <h3>Adidas</h3>
-                   <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                   <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                 </div>
        
                 <div class="swiper-slide slide">
                    <img src="images/carrusel 4.png" alt="">
                    <h3>Nike Air Jordan</h3>
-                   <a href="page/productos.html" class="boton swiper-btn">Lo Quiero!</a>
+                   <a href="page/productos.html" class="boton swiper-btn">Ver más</a>
                 </div>
              </div>
           </div>
@@ -138,19 +107,15 @@
 
 
        <!-- __________________ productos banner _________________________  -->
-        <section class="presentacion2__div" id="presentacion2"> 
-            <div class="presentacion2__cont">
-              <h2 class="presentacion2__cont__titulo titulo">Air Jordan Turbo Green es el futuro!</h2>
-              <a href="page/productos.html" class="boton swiper-btn">Comprar</a>
-            </div>
-            <img src="images/AirJordanTurboGreennReverse.png" alt="" class="presentacion__img">
-        </section>
 
-        <!-- __________________ productos  ____________________________  -->
-  
-        <div class="divProductoss" id="divProductosOcul">
-            <section class="productos" id="productos"></section>    
-        </div>
+        <section class="presentacion__div" id="presentacion"> 
+            <img src="images/zapas.png" alt="" class="presentacion__img ">
+          <div class="presentacion__cont">
+              <h2 class="presentacion__cont__titulo titulo">Nike Air Live es el futuro!</h2>
+              <a href="page/productos.html" class="boton swiper-btn">Comprar</a>
+          </div>
+      </section>
+
 
          <!-- __________________ banner 2  ____________________________  -->
 
@@ -217,7 +182,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.24/dist/sweetalert2.all.min.js"></script>
-    <script src="js/favoritosIndex.js" > </script>
     <script src="js/carrusel.js"> </script>
     <script src="js/script.js"> </script>
 </body>
